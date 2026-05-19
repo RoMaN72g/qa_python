@@ -1,4 +1,7 @@
+import pytest
+
 from main import BooksCollector
+
 
 # класс TestBooksCollector объединяет набор тестов, которыми мы покрываем наше приложение BooksCollector
 # обязательно указывать префикс Test
@@ -22,3 +25,9 @@ class TestBooksCollector:
 
     # напиши свои тесты ниже
     # чтобы тесты были независимыми в каждом из них создавай отдельный экземпляр класса BooksCollector()
+    @pytest.mark.parametrize('bad_name', ['','a' * 41,'a' * 42])
+
+    def test_add_new_book_not_add_with_invalid_name(self, bad_name):
+        collector = BooksCollector()
+        collector.add_new_book(bad_name)
+        assert bad_name not in collector.get_books_genre()
