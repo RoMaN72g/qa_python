@@ -32,6 +32,7 @@ class TestBooksCollector:
         collector.add_new_book(bad_name)
         assert bad_name not in collector.get_books_genre()
 
+
     def test_set_book_genre_for_valid_book(self):
         collector = BooksCollector()
         book = 'Марсианские записки'
@@ -39,4 +40,12 @@ class TestBooksCollector:
         collector.add_new_book(book)
         collector.set_book_genre(book, genre)
         assert collector.get_book_genre(book) == genre
+
+    def test_set_book_genre_for_invalid_genre(self):
+        collector = BooksCollector()
+        book = 'Физика'
+        genre = 'Наука'
+        collector.add_new_book(book)
+        collector.set_book_genre(book, genre)
+        assert collector.get_book_genre(book) != genre
 
