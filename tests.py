@@ -79,3 +79,11 @@ class TestBooksCollector:
         assert 'Книга3' not in collector.get_books_with_specific_genre('Фантастика')
 
 
+    def test_get_books_genre_returns_books_genre(self):
+        collector = BooksCollector()
+        collector.add_new_book('Книга1')
+        collector.add_new_book('Книга2')
+        collector.set_book_genre('Книга1', 'Фантастика')
+        collector.set_book_genre('Книга2', 'Детективы')
+        assert collector.get_books_genre() == {'Книга1': 'Фантастика', 'Книга2': 'Детективы'}
+
