@@ -58,3 +58,24 @@ class TestBooksCollector:
         collector.set_book_genre(book, genre)
         assert collector.get_book_genre(book) == genre
 
+
+    def test_get_books_with_specific_genre_returns_correct_list(self):
+        collector = BooksCollector()
+        collector.add_new_book('Книга1')
+        collector.add_new_book('Книга2')
+        collector.set_book_genre('Книга1', 'Фантастика')
+        collector.set_book_genre('Книга2', 'Фантастика')
+        assert collector.get_books_with_specific_genre('Фантастика') == ['Книга1', 'Книга2']
+
+    def test_get_books_with_specific_genre_not_include_other_genre(self):
+        collector = BooksCollector()
+        collector.add_new_book('Книга1')
+        collector.add_new_book('Книга2')
+        collector.add_new_book('Книга3')
+        collector.set_book_genre('Книга1', 'Фантастика')
+        collector.set_book_genre('Книга2', 'Фантастика')
+        collector.set_book_genre('Книга3', 'Детективы')
+        collector.get_books_with_specific_genre('Фантастика')
+        assert 'Книга3' not in collector.get_books_with_specific_genre('Фантастика')
+
+
