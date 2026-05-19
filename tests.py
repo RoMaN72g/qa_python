@@ -49,3 +49,12 @@ class TestBooksCollector:
         collector.set_book_genre(book, genre)
         assert collector.get_book_genre(book) != genre
 
+
+    def test_get_book_genre_returns_genre(self):
+        collector = BooksCollector()
+        book = 'Марсианские записки'
+        genre = 'Фантастика'
+        collector.add_new_book(book)
+        collector.set_book_genre(book, genre)
+        assert collector.get_book_genre(book) == genre
+
