@@ -110,4 +110,13 @@ class TestBooksCollector:
         collector.add_book_in_favorites('Книга1')
         assert collector.get_list_of_favorites_books() == ['Книга1']
 
+    def test_delete_book_from_favorites(self):
+        collector = BooksCollector()
+        collector.add_new_book('Книга1')
+        collector.add_book_in_favorites('Книга1')
+        collector.delete_book_from_favorites('Книга1')
+        assert collector.get_list_of_favorites_books() == []
+
+
+
 
