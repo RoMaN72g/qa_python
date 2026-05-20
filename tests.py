@@ -27,7 +27,7 @@ class TestBooksCollector:
     # чтобы тесты были независимыми в каждом из них создавай отдельный экземпляр класса BooksCollector()
     @pytest.mark.parametrize('bad_name', ['','a' * 41,'a' * 42])
 
-    def test_add_new_book_not_add_with_invalid_name(self, bad_name):
+    def test_add_new_book_not_add_invalid_name(self, bad_name):
         collector = BooksCollector()
         collector.add_new_book(bad_name)
         assert bad_name not in collector.get_books_genre()
