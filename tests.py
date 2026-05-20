@@ -88,12 +88,13 @@ class TestBooksCollector:
         assert collector.get_books_genre() == {'Книга1': 'Фантастика', 'Книга2': 'Детективы'}
 
 
-    def get_books_for_children_excludes_genre_age_rating(self):
+    def test_get_books_for_children_excludes_genre_age_rating(self):
         collector = BooksCollector()
         collector.add_new_book('Книга1')
         collector.add_new_book('Книга2')
         collector.set_book_genre('Книга1', 'Фантастика')
         collector.set_book_genre('Книга2', 'Детективы')
         assert collector.get_books_for_children() == ['Книга1']
+
 
 
