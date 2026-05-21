@@ -25,6 +25,12 @@ class TestBooksCollector:
 
     # напиши свои тесты ниже
     # чтобы тесты были независимыми в каждом из них создавай отдельный экземпляр класса BooksCollector()
+    def test_add_new_book_positive_with_dict_check(self):
+        collector = BooksCollector()
+        collector.add_new_book('Книга')
+        assert collector.get_books_genre() == {'Книга': ''}
+
+
     @pytest.mark.parametrize('bad_name', ['','a' * 41,'a' * 42])
 
     def test_add_new_book_not_add_invalid_name(self, bad_name):
