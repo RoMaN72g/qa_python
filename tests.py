@@ -53,7 +53,7 @@ class TestBooksCollector:
         genre = 'Наука'
         collector.add_new_book(book)
         collector.set_book_genre(book, genre)
-        assert collector.get_book_genre(book) != genre
+        assert collector.get_book_genre(book) == ''
 
 
     def test_get_book_genre_returns_genre(self):
